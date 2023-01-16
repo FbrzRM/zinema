@@ -1,13 +1,52 @@
-button {
-  margin: 10px;
+.example-form {
+  min-width: 150px;
+  max-width: 750px;
+  width: 100%;
+  margin: 2rem auto;
+  font-size: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
 }
-p {
-  background-color: #ffee00;
-  color: black;
+
+.example-full-width {
+  width: 100%;
 }
-#aceptar {
+
+td {
+  padding-right: 8px;
+  width: 250px;
+}
+
+.fieldset {
+  border: none;
+}
+
+tr {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  tr {
+    display: table-row;
+  }
+}
+
+.separador {
+  height: 30px;
+}
+#aceptar{
   background-color: black;
-  color: aliceblue;
+}
+
+.divLegend {
+  padding: 1rem;
+  background-color: rgb(39, 39, 39);
+  color: white;
+}
+legend {
+  display: block;
+  text-align: center;
 }
 
 .mat-grid-tile-content {
