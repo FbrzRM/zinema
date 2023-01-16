@@ -50,3 +50,7 @@ legend {
   display: block;
   text-align: center;
 }
+
+mat-error {
+  color: red;
+}

@@ -1,7 +1,7 @@
 <section class="container">
     <h2 style="margin-top: 3rem;">Registro</h2>
     <hr>
-    <form class="example-form shadow">
+    <form class="example-form shadow" (ngSubmit)="agregar()" [formGroup]="usuarioRegistro">
         <fieldset class="fieldset">
             <div class="divLegend">
                 <legend>Información personal</legend>
@@ -11,15 +11,15 @@
                 <tr>
                     <td><mat-form-field class="example-full-width">
                             <mat-label>Nombre</mat-label>
-                            <input type="text" matInput [formControl]="nombres" placeholder="Juan Pita">
-                            <mat-error *ngIf="nombres.hasError('required')">
+                            <input type="text" matInput formControlName="nombres" placeholder="Juan Pita">
+                            <mat-error *ngIf="!usuarioRegistro.valid">
                                 El nombre es <strong>requerido</strong>
                             </mat-error>
                         </mat-form-field></td>
                     <td><mat-form-field class="example-full-width">
                             <mat-label>Apellido</mat-label>
-                            <input type="text" matInput [formControl]="apellidos" placeholder="ALvarez Borque">
-                            <mat-error *ngIf="apellidos.hasError('required')">
+                            <input type="text" matInput formControlName="apellidos" placeholder="Alvarez Borque">
+                            <mat-error *ngIf="!usuarioRegistro.valid">
                                 El apellido es <strong>requerido</strong>
                             </mat-error>
                         </mat-form-field></td>
@@ -31,8 +31,8 @@
                         <mat-form-field class="example-full-width">
                             <mat-label>Teléfono</mat-label>
                             <span matPrefix>+593 &nbsp;</span>
-                            <input [formControl]="telf" type="tel" matInput placeholder="555-555-12">
-                            <mat-error *ngIf="telf.hasError('required')">
+                            <input formControlName="telf" type="tel" matInput placeholder="0985586995">
+                            <mat-error *ngIf="!usuarioRegistro.valid">
                                 Teléfono es <strong>requerido</strong>
                             </mat-error>
                             <mat-icon matSuffix>phone</mat-icon>
@@ -42,8 +42,8 @@
                     <td>
                         <mat-form-field class="example-full-width">
                             <mat-label>Cedula de identidad</mat-label>
-                            <input type="text" matInput [formControl]="cedula" placeholder="09999999">
-                            <mat-error *ngIf="cedula.hasError('required')">
+                            <input type="text" matInput formControlName="cedula" placeholder="09999999">
+                            <mat-error *ngIf="!usuarioRegistro.valid">
                                 La C.I es <strong>requerido</strong>
                             </mat-error>
                             <mat-icon matSuffix>perm_identity</mat-icon>
@@ -61,20 +61,21 @@
                 <tr>
                     <td><mat-form-field class="example-full-width">
                             <mat-label>Ciudad</mat-label>
-                            <input type="text" matInput [formControl]="ciudad" placeholder="Guayaquil">
-                            <mat-error *ngIf="ciudad.hasError('required')">
+                            <input type="text" matInput formControlName="ciudad" placeholder="Guayaquil">
+                            <mat-error *ngIf="!usuarioRegistro.valid">
                                 La ciudad es <strong>requerida</strong>
                             </mat-error>
                         </mat-form-field></td>
                     <td>
                         <mat-form-field class="example-full-width">
                             <mat-label>Dirección</mat-label>
-                            <input type="text" matInput [formControl]="direccion" placeholder="esquina sur">
-                            
-                            <mat-error *ngIf="direccion.hasError('required')">
+                            <input type="text" matInput formControlName="direccion" placeholder="Avenida las monjas">
+
+                            <mat-error *ngIf="!usuarioRegistro.valid">
                                 La dirección es <strong>requerido</strong>
                             </mat-error>
-                        </mat-form-field></td>
+                        </mat-form-field>
+                    </td>
                 </tr>
                 <tr class="separador"></tr>
             </table>
@@ -84,19 +85,19 @@
             </div>
             <mat-form-field class="example-full-width">
                 <mat-label>Email</mat-label>
-                <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                <input type="email" matInput formControlName="emailFormControl" placeholder="Ex. ejemplo@correo.com">
+                <mat-error *ngIf="!usuarioRegistro.valid">
                     ingrese un email valido
                 </mat-error>
-                <mat-error *ngIf="emailFormControl.hasError('required')">
+                <mat-error *ngIf="!usuarioRegistro.valid">
                     Email es <strong>requerido</strong>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <mat-label>Nombre de usuario</mat-label>
-                <input type="email" matInput [formControl]="username" placeholder="Er1234">
-                
-                <mat-error *ngIf="emailFormControl.hasError('required')">
+                <input type="email" matInput formControlName="username" placeholder="Max12">
+
+                <mat-error *ngIf="!usuarioRegistro.valid">
                     nombre usuario <strong>requerido</strong>
                 </mat-error>
             </mat-form-field>
@@ -106,15 +107,15 @@
                 <tr>
                     <td><mat-form-field class="example-full-width">
                             <mat-label>Contraseña</mat-label>
-                            <input type="password" matInput [formControl]="password" placeholder="123243">
-                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                            <input type="password" matInput formControlName="password">
+                            <mat-error *ngIf="!usuarioRegistro.valid">
                                 contraseña <strong>requerida</strong>
                             </mat-error>
                         </mat-form-field></td>
                     <td><mat-form-field class="example-full-width">
                             <mat-label>Repite la contraseña</mat-label>
-                            <input type="password" matInput [formControl]="passwordrepeat" placeholder="123">
-                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                            <input type="password" matInput formControlName="passwordrepeat">
+                            <mat-error *ngIf="!usuarioRegistro.valid">
                                 contraseña <strong>requerida</strong>
 
                             </mat-error>
@@ -123,9 +124,7 @@
                 </tr>
             </table>
 
-            <button mat-raised-button color="primary">Registrar</button>
-
-
+            <button mat-raised-button color="primary" type="submit">Registrar</button>
 
         </fieldset>
 

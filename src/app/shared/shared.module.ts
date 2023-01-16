@@ -16,6 +16,7 @@ import { SnackRowComponent } from "./components/snacks/snack-row/snack-row.compo
 import { LoginService } from "./services/login.service";
 import { UsuarioService } from "./services/usuario.service";
 import { CardspayComponent } from "./components/cardspay/cardspay.component";
+import { RegistroRealizadoComponent } from "./components/resgirstro-realizado/registro-realizado.component";
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { CardspayComponent } from "./components/cardspay/cardspay.component";
         SnackBarComponent,
         SnackRowComponent,
         CarritoSnackComponent,
-        CardspayComponent
+        CardspayComponent,
+        RegistroRealizadoComponent
        
     ],
     exports: [
@@ -37,7 +39,8 @@ import { CardspayComponent } from "./components/cardspay/cardspay.component";
         SnackBarComponent,
         SnackRowComponent,
         CarritoSnackComponent,
-        CardspayComponent
+        CardspayComponent,
+        RegistroRealizadoComponent
         
     ],
     imports:[
