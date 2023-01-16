@@ -23,7 +23,6 @@ import { ExinfoComponent } from './info/exinfo/exinfo.component';
 import { ExinfoRowComponent } from './info/exinfo-row/exinfo-row.component';
 import { PerfilComponent } from "./perfil/perfil.component";
 import { ReservacionComponent } from "./reservarcion/reservacion.component";
-import { InforegisttroComponent } from "./info/inforegisttro/inforegisttro.component";
 
 
 @NgModule({
@@ -47,7 +46,6 @@ import { InforegisttroComponent } from "./info/inforegisttro/inforegisttro.compo
         PromocionesComponent,
         PerfilComponent,
         ReservacionComponent,
-        InforegisttroComponent
         
     ],
     exports: [
