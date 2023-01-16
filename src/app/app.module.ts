@@ -8,11 +8,13 @@ import { SharedModule } from './shared/shared.module';
 import { ModulesModule } from "./modules/modules.module";
 import { AppRoutingModule } from './app-routing.module';
 import { CardspayComponent } from './shared/components/cardspay/cardspay.component';
+import { InforegisttroComponent } from './modules/info/inforegisttro/inforegisttro.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    InforegisttroComponent,
     
     
   
