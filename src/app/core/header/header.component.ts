@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit{
         this.loginService.username = "";
         this.router.navigate(['']);
         localStorage.removeItem('usuario');
+        // localStorage.removeItem('usuariosR');
     }
 
     perfil(){
