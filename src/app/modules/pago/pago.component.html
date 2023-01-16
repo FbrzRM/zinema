@@ -1,68 +1,106 @@
-<div>
-<mat-card>
+<div class="container">
+    
+    <h4 style="margin-top: 3rem;">pago</h4>
+    <hr>
+    <form class="example-form shadow"  [formGroup]="pagoNuevo">
+        <fieldset class="fieldset">
+            <div class="divLegend">
+                <legend>Información personal</legend>
+            </div>
 
-    <form [formGroup]="pagoNuevo">
-        <mat-grid-list cols="3" rowHeight="2:1">
-        <div>
-            <p>Informacion del usuario</p>
-            <mat-grid-tile>
-            <mat-icon>face</mat-icon>
-            <mat-form-field class="campos-field">
-                <input matInput placeholder="Nombre Completo" formControlName="nombres">
-            </mat-form-field>
-        </mat-grid-tile>
-        </div>
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td><mat-form-field class="example-full-width">
+                            <mat-label>Nombres</mat-label>
+                            <input type="text" matInput formControlName="nombres">
+                            <mat-error *ngIf="">
+                                El nombre es <strong>requerido</strong>
+                            </mat-error>
+                        </mat-form-field></td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Teléfono</mat-label>
+                            <span matPrefix>+593 &nbsp;</span>
+                            <input formControlName="telf" type="tel" matInput placeholder="0985586995">
+                            <mat-error *ngIf="">
+                                Teléfono es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-icon matSuffix>phone</mat-icon>
+                        </mat-form-field>
 
-        <div>
-            <mat-grid-tile>
-            <mat-icon> email</mat-icon>
-            <mat-form-field class="campos-field">
-                <input matInput placeholder="Correo eléctronico" formControlName="correo">
-            </mat-form-field>
-        </mat-grid-tile>
-        </div>
+                    </td>
+                    </tr>
+                <tr class="separador"></tr>
+                <tr>
 
-        <div>
-            <mat-grid-tile>
-            <mat-icon>settings_phone</mat-icon>
-            <mat-form-field class="campos-field">
-                <input matInput placeholder="Número de teléfono" formControlName="numero">
-            </mat-form-field>
-        </mat-grid-tile>
-        </div>
-    </mat-grid-list>
-    <mat-grid-list cols="3" rowHeight="2:1">
-        <div>
-        <p>Informacion de la tarjeta</p>
-            <mat-grid-tile>
-            <mat-icon>picture_in_picture</mat-icon>
-            <mat-form-field class="campos-field">
-                <input matInput placeholder="Nombre como aparece en la tarjeta" formControlName="nombret">
-            </mat-form-field>
-        </mat-grid-tile>
-        </div>
+                    <td>
+                      <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput formControlName="emailFormControl" placeholder="Ex. ejemplo@correo.com">
+                            <mat-error *ngIf="">
+                                ingrese un email valido
+                            </mat-error>
+                            <mat-error *ngIf="">
+                                Email es <strong>requerido</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr class="separador"></tr>
 
-        <div>
-            <mat-grid-tile>
-            <mat-icon>payment</mat-icon>
-            <mat-form-field class="campos-field">
-                <input matInput placeholder="Número de tarjeta" formControlName="tarjeta">
-            </mat-form-field>
-        </mat-grid-tile>
-        </div>
+            </table>
 
-        <div>
-            <mat-grid-tile>
-            <mat-icon>lock</mat-icon>
-            <mat-form-field class="campos-field">
-                <input matInput placeholder="Codigo de seguridad" formControlName="codigo">
+
+            <table class="example-full-width s-r" cellspacing="0">
+               
+                <tr class="separador"></tr>
+            </table>
+
+            <div class="divLegend">
+                <legend>Datos de la Tarjeta</legend>
+            </div>
+           
+            <mat-form-field class="example-full-width">
+                <mat-label>Número de Tarjeta</mat-label>
+                <input type="text" matInput formControlName="username" placeholder="5018 5020 5038">
+
+                <mat-error *ngIf="">
+                    nombre usuario <strong>requerido</strong>
+                </mat-error>
             </mat-form-field>
-        </mat-grid-tile>
-        </div>
-    </mat-grid-list>
+
+
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td><mat-form-field class="example-full-width">
+                            <mat-label>Código de seguridad</mat-label>
+                            <input type="password" matInput formControlName="password">
+                            <mat-error *ngIf="">
+                                contraseña <strong>requerida</strong>
+                            </mat-error>
+                        </mat-form-field></td>
+                    <td>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Nombre de la Tarjeta</mat-label>
+                            <input type="text" matInput formControlName="nombres">
+                            <mat-error *ngIf="">
+                                El nombre es <strong>requerido</strong>
+                            </mat-error>
+                        </mat-form-field>
+
+
+
+
+                    </td>
+
+                </tr>
+            </table>
+
+            <button mat-raised-button color="primary" type="submit">Pagar</button>
+
+        </fieldset>
+
     </form>
 
-    <button mat-raised-button [disabled]="!pagoNuevo.valid" (click)="onSubmit()" id="aceptar">Aceptar</button>
-    <button mat-raised-button (click)="cancelar()">Cancelar</button>
-</mat-card>
 </div>
