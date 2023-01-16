@@ -1,12 +1,16 @@
 button {
   margin: 10px;
 }
-p{
-  background-color:#ffee00;
+p {
+  background-color: #ffee00;
   color: black;
 }
-#aceptar{
+#aceptar {
   background-color: black;
   color: aliceblue;
 }
 
+.mat-grid-tile-content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
