@@ -31,6 +31,62 @@
       display: table-row;
     }
   }
+
+  @media(max-width: 480px) {
+    .example-full-width {
+      width: 15px;
+    }
+
+    .divLegend {
+      padding: 5px;
+      background-color: rgb(39, 39, 39);
+      color: white;
+      width: 200px;
+    }
+
+
+    legend {
+      display: line;
+      text-align: center;
+      width: 5px;
+      margin: auto;
+    }
+  }
+
+
+  @media(max-width: 300px) {
+    .example-full-width {
+      width: 30px;
+    }
+    .example-form {
+      
+      width: 350px;
+      margin: auto;
+      font-size: 2rem;
+      padding: 0;
+      border-radius: 1rem;
+    }
+
+
+    .divLegend {
+      padding: 5px;
+      background-color: rgb(185, 52, 52);
+      color: white;
+      width: 200px;
+    }
+
+
+    legend {
+      display: block;
+      text-align: center;
+      width: 5px;
+      margin: auto;
+    }
+  }
+
+
+
+
   
   .separador {
     height: 30px;
