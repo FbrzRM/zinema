@@ -21,7 +21,7 @@
                         <mat-form-field class="example-full-width">
                             <mat-label>Teléfono</mat-label>
                             <span matPrefix>+593 &nbsp;</span>
-                            <input formControlName="telf" type="tel" matInput placeholder="0985586995">
+                            <input formControlName="numero" type="tel" matInput placeholder="0985586995">
                             <mat-error *ngIf="">
                                 Teléfono es <strong>requerido</strong>
                             </mat-error>
@@ -36,7 +36,7 @@
                     <td>
                       <mat-form-field class="example-full-width">
                             <mat-label>Email</mat-label>
-                            <input type="email" matInput formControlName="emailFormControl" placeholder="Ex. ejemplo@correo.com">
+                            <input type="correo" matInput formControlName="correo" placeholder="Ex. ejemplo@correo.com">
                             <mat-error *ngIf="">
                                 ingrese un email valido
                             </mat-error>
@@ -62,7 +62,7 @@
            
             <mat-form-field class="example-full-width">
                 <mat-label>Número de Tarjeta</mat-label>
-                <input type="text" matInput formControlName="username" placeholder="5018 5020 5038">
+                <input type="text" matInput formControlName="tarjeta" placeholder="5018 5020 5038">
 
                 <mat-error *ngIf="">
                     nombre usuario <strong>requerido</strong>
@@ -74,7 +74,7 @@
                 <tr>
                     <td><mat-form-field class="example-full-width">
                             <mat-label>Código de seguridad</mat-label>
-                            <input type="password" matInput formControlName="password">
+                            <input type="password" matInput formControlName="codigo">
                             <mat-error *ngIf="">
                                 contraseña <strong>requerida</strong>
                             </mat-error>
@@ -83,7 +83,7 @@
 
                         <mat-form-field class="example-full-width">
                             <mat-label>Nombre de la Tarjeta</mat-label>
-                            <input type="text" matInput formControlName="nombres">
+                            <input type="text" matInput formControlName="nombret">
                             <mat-error *ngIf="">
                                 El nombre es <strong>requerido</strong>
                             </mat-error>
