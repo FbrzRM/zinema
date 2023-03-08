@@ -1,7 +1,7 @@
 export interface SnackBars{
-    id_snack: number,
-    img: string,
-    nombre: string,
-    descripcion: string,
-    precio: number
+    snacks_id   : number;
+    image       : string;
+    nombre      : string;
+    descripcion : string;
+    precio      : number;
 }

@@ -1,61 +1,45 @@
 import { Injectable } from "@angular/core";
-import { Peliculas } from "src/assets/ts/MOCK_DATA_Peliculas";
 import { Pelicula } from "../interfaces/pelicula.interface";
+import { HttpClient } from '@angular/common/http';
 
-@Injectable()
-export class PeliculasServices{
-    private _peliculas: Pelicula[] = [...Peliculas];
+@Injectable({
+  providedIn: 'root'
+})
+export class PeliculasServices {
+  private servicioUrl: string = '/api/Peliculas/GetPeliculas?transaccion=SELECT';
 
-    private _peliculasEstreno: Pelicula[] = [];
-    private _peliculasPreventa: Pelicula[] = [];
-    private _peliculasDisponible: Pelicula[] = [];
-    private _peliculasProximo: Pelicula[] = [];
+  public resultados: Pelicula[] = [];
+  private _peliculas: Pelicula[] = [];
 
-    get peliculas(): Pelicula[]{
-        return this._peliculas;
-    }
-
-    get peliculasEstreno(): Pelicula[]{
-        for (const i of this._peliculas) {
-            if(i.id_tipo === 'Estreno'){
-                if(!(this._peliculasEstreno.includes(i))){
-                    this._peliculasEstreno.push(i)
-                }
-            }
+  constructor(private http: HttpClient) {
+    this.http.get<Pelicula[]>(this.servicioUrl).subscribe(
+        peliculas => {
+          this._peliculas = peliculas;
+          this.resultados = peliculas;
+        },
+        error => {
+          console.log('Error al cargar las películas: ', error);
         }
-        return this._peliculasEstreno;
-    }
+      );
+  }
 
-    get peliculasPreventa(): Pelicula[]{
-        for (const i of this._peliculas) {
-            if(i.id_tipo === 'Preventa'){
-                if(!(this._peliculasPreventa.includes(i))){
-                    this._peliculasPreventa.push(i)
-                }
-            }
-        }
-        return this._peliculasPreventa;
-    }
+  get peliculas(): Pelicula[] {
+    return this._peliculas;
+  }
 
-    get peliculasDisponible(): Pelicula[]{
-        for (const i of this._peliculas) {
-            if(i.id_tipo === 'Disponible'){
-                if(!(this._peliculasDisponible.includes(i))){
-                    this._peliculasDisponible.push(i)
-                }
-            }
-        }
-        return this._peliculasDisponible;
-    }
+  get peliculasEstreno(): Pelicula[] {
+    return this.peliculas.filter(pelicula => pelicula.tipo === 'Estreno');
+  }
 
-    get peliculasProximamente(): Pelicula[]{
-        for (const i of this._peliculas) {
-            if(i.id_tipo === 'Próximos estrenos'){
-                if(!(this._peliculasProximo.includes(i))){
-                    this._peliculasProximo.push(i)
-                }
-            }
-        }
-        return this._peliculasProximo;
-    }
+  get peliculasPreventa(): Pelicula[] {
+    return this.peliculas.filter(pelicula => pelicula.tipo === 'Preventa');
+  }
+
+  get peliculasDisponible(): Pelicula[] {
+    return this.peliculas.filter(pelicula => pelicula.tipo === 'Disponible');
+  }
+
+  get peliculasProximamente(): Pelicula[] {
+    return this.peliculas.filter(pelicula => pelicula.tipo === 'Próximos estrenos');
+  }
 }

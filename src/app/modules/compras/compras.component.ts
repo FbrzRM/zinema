@@ -11,10 +11,7 @@ import { Pelicula } from "src/app/shared/interfaces/pelicula.interface";
 
 export class ComprasComponent implements OnInit{
 
-    constructor(private route: ActivatedRoute, private pelis:PeliculasServices, ){
-      
-    }
-    
+    constructor(private route: ActivatedRoute, private pelis:PeliculasServices, ){}
     id_pelicula:any;
     infopeli:any;
 
@@ -22,15 +19,9 @@ export class ComprasComponent implements OnInit{
          this.id_pelicula=this.route.snapshot.paramMap.get("id");
 
          for( let i of this.pelis.peliculas){
-            if(i.id_pelicula==this.id_pelicula){
+            if(i.pelicula_id==this.id_pelicula){
                 this.infopeli= i;
-
             }
-
-         }
+        }
     }
-
-    
-
-    
 }

@@ -1,46 +1,22 @@
 <main class="container">
   <h2>Gran oferta</h2>
-
   <small>Valído solo en el establecimiento, hasta agotar stock*</small>
   <hr>
   <h3>Coleccionables</h3>
   <div class="grid">
-    <div class="shadow card">
-      <header>
-        <img src="../../../assets/img/promociones/b-avatar.jpg" alt="">
-      </header>
-      <footer>
-        <p>Sumérgete a esta aventura con esta bucket promocional de la película "Avatar: El camino del agua".</p>
-      </footer>
 
-    </div>
-    <div class="shadow card">
-      <header>
-        <img src="../../../assets/img/promociones/b-black-adam.jpg" alt="">
-      </header>
-      <footer>
-        <p>Siente la fuerza en tus palomitas con esta increíble bucket promocional junto al estreno de la película de "Black Adam". </p>
-      </footer>
+    <div *ngFor="let data of Promociones;">
+      <div class="shadow card">
+        <header>
+          <img src="../../../assets/img/promociones/{{data.poster}}" alt="">
+        </header>
+        <footer>
+          <p>{{data.descripcion}}</p>
+        </footer>
 
+      </div>
     </div>
-    <div class="shadow card">
-      <header>
-        <img src="../../../assets/img/promociones/b-panter.jpg" alt="">
-      </header>
-      <footer>
-        <p>Experimenta una fiereza perpetua con la bucket promocional junto con la nueva película de Marvel WAKANDA FOREVER".</p>
-      </footer>
 
-    </div>
-    <div class="shadow card">
-      <header>
-        <img src="../../../assets/img/promociones/v-encanto.jpg" alt="">
-      </header>
-      <footer>
-        <p>Disfruta una experiencia en familia con tu vaso promocional junto a Mirabel descubriendo los secretos de su familia en "ENCANTO"</p>
-      </footer>
-
-    </div>
   </div>
   <!-- COLECCIONES -->
   <br>

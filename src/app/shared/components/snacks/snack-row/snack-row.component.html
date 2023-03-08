@@ -6,7 +6,7 @@
                 <small class="desc">{{data.descripcion}}</small>
             </div>
             <div class="info">
-                <img class="img" src="{{data.img}}" alt="peli">
+                <img class="img" src="../../../../../assets/img/snacks/{{data.image}}" alt="{{data.nombre}}">
                 <p>${{data.precio}}.00</p>
                 <mat-card-actions class="count">
                     <button (click)="quitar(i, -1,data)" mat-mini-fab color="accent">

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { MaterialModule } from "./material/material.module";
@@ -45,7 +46,8 @@ import { RegistroRealizadoComponent } from "./components/resgirstro-realizado/re
     ],
     imports:[
         MaterialModule,
-        CommonModule
+        CommonModule,
+        HttpClientModule
     ],
     providers:[
         PeliculasServices,

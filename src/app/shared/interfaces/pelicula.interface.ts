@@ -1,12 +1,13 @@
 export interface Pelicula{
-    id_pelicula      : number;
+    pelicula_id      : number;
     poster           : string;
     titulo_original  : string;
     reparto          : string;
     sinopsis         : string;
     tiempo_duracion  : number;
-    id_categoria     : string;
-    id_clasificacion : string;
-    id_tipo          : string;
+    tipo             : string;
+    categoria        : string;
+    clasificacion    : string;
+    estado           : string
     precio           : number;
 }
