@@ -17,28 +17,32 @@ export class LoginComponent{
       private usuarioServices: UsuarioService) { }
 
   alert: boolean = false;
+  usuarioTemp: string ="";
+  passwordTemp: string ="";
 
   usuarioLogin = new FormGroup({
-    usuario: new FormControl('',Validators.required),
-    password: new FormControl('', Validators.required)
+    username: new FormControl('',Validators.required),
+    password: new FormControl('', Validators.required),
+    transaccion: new FormControl()
   })
 
-  get usuariosR(): Usuario[]{
-    return this.usuarioServices.usuariosR
-  }
-
   onSubmit(){
-    this.usuariosR.forEach(element => {
-      if(this.usuarioLogin.value.usuario === element.nombre_usuario && this.usuarioLogin.value.password === element.contrasena){
-        this.loginService.username = this.usuarioLogin.value.usuario;
-        localStorage.setItem('usuario', this.usuarioLogin.value.usuario);
-        localStorage.setItem('cedula', element.cedula);
-        this.router.navigate(['']);
-        this.dialogRef.close();
-      }else{
-        this.alert = true;
-        setTimeout(() => this.alert=false, 4000);
-      }
+    this.usuarioLogin.value.transaccion ="LOG";
+    this.usuarioLogin.value.username = this.usuarioLogin.value.username ;
+    this.usuarioLogin.value.password = this.usuarioLogin.value.password;
+
+    this.loginService.login(this.usuarioLogin.value as Usuario).subscribe((data:any) =>{
+      localStorage.setItem('username', this.usuarioLogin.value.username || "");
+      localStorage.setItem('token', data || "");
+      this.dialogRef.close();
+      this.loginService.username = localStorage.getItem("username") || '';
+      console.log(data);
+
+    },(errorData) => {
+      this.alert = true;
+      setTimeout(() => this.alert=false, 4000);
+      console.log("errorData")
     });
   }
+
 }

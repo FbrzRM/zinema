@@ -12,15 +12,10 @@ import {Router} from '@angular/router';
 export class PerfilComponent{
 
     id = '';
-    constructor(private usuarioServices: UsuarioService, public loginService: LoginService, private router: Router){
-        this.id = localStorage.getItem('cedula') || '';
-    }
+    constructor(private usuarioServices: UsuarioService, public loginService: LoginService, private router: Router){}
 
     reservar(){
         this.router.navigate(['/reservacion']);
     }
 
-    get usuariosR(): Usuario[]{
-        return this.usuarioServices.usuariosR
-    }
 }

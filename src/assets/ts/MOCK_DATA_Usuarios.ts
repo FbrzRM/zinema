@@ -11,7 +11,8 @@ export const mockDataUsuarios = [
     email: 'admin@zinema.com',
     nombre_usuario: 'admin',
     contrasena: '123',
-    r_contrasena: '123'
+    r_contrasena: '123',
+    transaccion: ""
   },
   {
     id_usuario: 1,
@@ -25,6 +26,7 @@ export const mockDataUsuarios = [
     email: 'fabrizio@email.com',
     nombre_usuario: 'fbrz',
     contrasena: '123',
-    r_contrasena: '123'
+    r_contrasena: '123',
+    transaccion: ""
   },
 ];

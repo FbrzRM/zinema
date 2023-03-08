@@ -4,39 +4,17 @@
     <hr>
 
     <div class="perfil">
-        <div *ngFor="let data of usuariosR" class="shadow">
-            <mat-card class="example-card" *ngIf="data.cedula === id">
+        <div class="shadow">
+            <mat-card class="example-card">
                 <mat-card-header>
                 </mat-card-header>
                 <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
                 <mat-card-content class="info">
                     <div>
                         <h3>Nombre:</h3>
-                        <p>{{data.nombre}}</p>
-                    </div>
-                    <div>
-                        <h3>Apellido:</h3>
-                        <p>{{data.apellido}}</p>
-                    </div>
-                    <div>
-                        <h3>Telefono:</h3>
-                        <p>{{data.telefono}}</p>
+                        <p>nombre</p>
                     </div>
 
-                    <div>
-                        <h3>Cedula:</h3>
-                        <p>{{data.cedula}}</p>
-                    </div>
-
-                    <div>
-                        <h3>Direccion:</h3>
-                        <p>{{data.direccion}}</p>
-                    </div>
-
-                    <div>
-                        <h3>Correo:</h3>
-                        <p>{{data.email}}</p>
-                    </div>
                 </mat-card-content>
                 <mat-card-actions style="width: 100%;">
                     <button style="width: 100%;" (click)="reservar()" mat-raised-button color="primary">Realizar una reservación</button>

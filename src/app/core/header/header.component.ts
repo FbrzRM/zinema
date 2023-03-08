@@ -21,8 +21,8 @@ export class HeaderComponent implements OnInit{
     Salir(){
         this.loginService.username = "";
         this.router.navigate(['']);
-        localStorage.removeItem('usuario');
-        // localStorage.removeItem('usuariosR');
+        localStorage.removeItem('username');
+        localStorage.removeItem('token');
     }
 
     perfil(){
@@ -30,6 +30,6 @@ export class HeaderComponent implements OnInit{
     }
 
     ngOnInit(): void {
-        this.loginService.username = localStorage.getItem('usuario') || '';
+        this.loginService.username = localStorage.getItem("username") || '';
     }
 }

@@ -29,30 +29,30 @@ export class RegistrarComponent implements OnInit{
 
     ngOnInit(){}
 
-    agregar(){
-        let {nombres, apellidos, telf, cedula, ciudad, direccion, emailFormControl, username, password, passwordrepeat} = this.usuarioRegistro.value;
-        if(this.usuarioRegistro.valid){
-            const n = this.usuarioService.usuariosR.length;
-            console.log(n);
-            const nuevoUsuario: Usuario = {
-                id_usuario: n,
-                rol: 'usuario',
-                nombre: nombres || '',
-                apellido:  apellidos || '',
-                telefono: telf || '',
-                cedula: cedula || '',
-                ciudad: ciudad || '',
-                direccion: direccion || '',
-                email: emailFormControl || '',
-                nombre_usuario: username || '',
-                contrasena: password || '',
-                r_contrasena: passwordrepeat || '',
-            }
-            this.usuarioService.usuariosR.push(nuevoUsuario);
-            this.dialog.open(RegistroRealizadoComponent);
-            localStorage.setItem('usuariosR',JSON.stringify(this.usuarioService.usuariosR))
+    // agregar(){
+    //     let {nombres, apellidos, telf, cedula, ciudad, direccion, emailFormControl, username, password, passwordrepeat} = this.usuarioRegistro.value;
+    //     if(this.usuarioRegistro.valid){
+    //         const n = this.usuarioService.usuariosR.length;
+    //         console.log(n);
+    //         const nuevoUsuario: Usuario = {
+    //             usuario_id: n,
+    //             foto: 'usuario.jpg',
+    //             rol: 'usuario',
+    //             cedula: cedula || '',
+    //             nombres: nombres || '',
+    //             apellido:  apellidos || '',
+    //             ciudad: ciudad || '',
+    //             direccion: direccion || '',
+    //             email: emailFormControl || '',
+    //             username: username || '',
+    //             password: password || '',
+    //             transaccion: 'REGISTRO'
+    //         }
+    //         this.usuarioService.usuariosR.push(nuevoUsuario);
+    //         this.dialog.open(RegistroRealizadoComponent);
+    //         localStorage.setItem('usuariosR',JSON.stringify(this.usuarioService.usuariosR))
 
-        }
-    }
+    //     }
+    // }
 
 }
