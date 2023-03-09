@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
     templateUrl: './perfil.component.html',
     styleUrls: ['./perfil.component.css']
 })
-export class PerfilComponent{
+export class PerfilComponent {
 
     id = '';
     constructor(private usuarioServices: UsuarioService, public loginService: LoginService, private router: Router){}
@@ -18,4 +18,9 @@ export class PerfilComponent{
         this.router.navigate(['/reservacion']);
     }
 
+    get usuariosR(): Usuario[]{
+        return this.usuarioServices.usuariosR;
+    }
+
+    usernow = localStorage.getItem("username") || '';
 }

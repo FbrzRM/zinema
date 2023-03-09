@@ -13,6 +13,7 @@ import { ResumenComponent } from "./modules/resumen/resumen-bar/resumen.componen
 import { ResumenRowComponent } from "./modules/resumen/resumen-row/resumen-row.component";
 import { PerfilComponent } from "./modules/perfil/perfil.component";
 import { ReservacionComponent } from "./modules/reservarcion/reservacion.component";
+import { PerfllComponent } from "./modules/perfll/perfll.component";
 
 const routes: Routes = [
     {path: '', component:HomeComponent},
@@ -26,7 +27,9 @@ const routes: Routes = [
     {path: 'resumen-bar', component:ResumenComponent},
     {path: 'resumen-row', component:ResumenRowComponent},
     {path: 'perfil', component:PerfilComponent},
-    {path: 'reservacion', component:ReservacionComponent}
+    {path: 'reservacion', component:ReservacionComponent},
+    {path: 'perfll', component:PerfllComponent},
+
 ]
 
 
