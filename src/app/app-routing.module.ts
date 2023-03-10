@@ -17,24 +17,25 @@ import { PerfllComponent } from "./modules/perfll/perfll.component";
 import { PeliculasAdminComponent } from "./modules/peliculas-admin/peliculas-admin.component";
 import { SnacksAdminComponent } from "./modules/skacks-admin/snacks-admin.component";
 import { PromocionesAdminComponent } from "./modules/promociones-admin/promociones-admin.component";
+import { Guardia } from "./guardia";
 
 const routes: Routes = [
     {path: '', component:HomeComponent},
-    {path: 'compras/:id', component:ComprasComponent},
-    {path: 'snack-bar', component:BarComponent},
-    {path: 'cartelera', component:CarteleraComponent},
-    {path: 'pago', component:PagoComponent},
-    {path: 'promociones', component:PromocionesComponent},
-    {path: 'registrar', component:RegistrarComponent},
-    {path: 'info', component:AdinfoComponent},
-    {path: 'resumen-bar', component:ResumenComponent},
-    {path: 'resumen-row', component:ResumenRowComponent},
-    {path: 'perfil', component:PerfilComponent},
-    {path: 'reservacion', component:ReservacionComponent},
-    {path: 'perfll', component:PerfllComponent},
-    {path: 'peliculas-admin', component:PeliculasAdminComponent},
-    {path: 'snacks-admin', component:SnacksAdminComponent},
-    {path: 'promociones-admin', component:PromocionesAdminComponent}
+    {path: 'compras/:id',       component:ComprasComponent},
+    {path: 'snack-bar',         component:BarComponent},
+    {path: 'cartelera',         component:CarteleraComponent},
+    {path: 'pago',              component:PagoComponent},
+    {path: 'promociones',       component:PromocionesComponent},
+    {path: 'registrar',         component:RegistrarComponent},
+    {path: 'info',              component:AdinfoComponent},
+    {path: 'resumen-bar',       component:ResumenComponent},
+    {path: 'resumen-row',       component:ResumenRowComponent},
+    {path: 'perfil',            component:PerfilComponent, canActivate: [Guardia]},
+    {path: 'reservacion',       component:ReservacionComponent, canActivate: [Guardia]},
+    {path: 'error',            component:PerfllComponent},
+    {path: 'peliculas-admin',   component:PeliculasAdminComponent, canActivate: [Guardia]},
+    {path: 'snacks-admin',      component:SnacksAdminComponent, canActivate: [Guardia]},
+    {path: 'promociones-admin', component:PromocionesAdminComponent, canActivate: [Guardia]}
 
 ]
 
@@ -45,7 +46,8 @@ const routes: Routes = [
     ],
     imports:[
         RouterModule.forRoot(routes)
-    ]
+    ],
+    providers:[Guardia]
 })
 
 export class AppRoutingModule{}
