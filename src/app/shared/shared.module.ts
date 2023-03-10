@@ -18,6 +18,7 @@ import { LoginService } from "./services/login.service";
 import { UsuarioService } from "./services/usuario.service";
 import { CardspayComponent } from "./components/cardspay/cardspay.component";
 import { RegistroRealizadoComponent } from "./components/resgirstro-realizado/registro-realizado.component";
+import { RegistroService } from "./services/registro.service";
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import { RegistroRealizadoComponent } from "./components/resgirstro-realizado/re
         SnackBarServices,
         CarritoServices,
         LoginService,
-        UsuarioService
+        UsuarioService,
+        RegistroService
     ]
 })
 

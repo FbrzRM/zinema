@@ -5,15 +5,14 @@ import { Usuario } from "../interfaces/usuario.interface";
 @Injectable({
     providedIn: 'root'
 })
-export class UsuarioService{
+export class RegistroService{
 
-    private servicioUrl: string = '/api/Usuario/GetPerfil';
+    private servicioUrl: string = '/api/Usuario/PostRegistro';
 
     constructor(private http:HttpClient){}
 
-    perfil(user: Usuario){
+    registro(user: Usuario){
         return this.http.post(this.servicioUrl, user);
     }
 
-    public _usuarioR: Usuario[] =  []
 }

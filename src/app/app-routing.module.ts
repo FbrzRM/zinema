@@ -14,6 +14,9 @@ import { ResumenRowComponent } from "./modules/resumen/resumen-row/resumen-row.c
 import { PerfilComponent } from "./modules/perfil/perfil.component";
 import { ReservacionComponent } from "./modules/reservarcion/reservacion.component";
 import { PerfllComponent } from "./modules/perfll/perfll.component";
+import { PeliculasAdminComponent } from "./modules/peliculas-admin/peliculas-admin.component";
+import { SnacksAdminComponent } from "./modules/skacks-admin/snacks-admin.component";
+import { PromocionesAdminComponent } from "./modules/promociones-admin/promociones-admin.component";
 
 const routes: Routes = [
     {path: '', component:HomeComponent},
@@ -29,6 +32,9 @@ const routes: Routes = [
     {path: 'perfil', component:PerfilComponent},
     {path: 'reservacion', component:ReservacionComponent},
     {path: 'perfll', component:PerfllComponent},
+    {path: 'peliculas-admin', component:PeliculasAdminComponent},
+    {path: 'snacks-admin', component:SnacksAdminComponent},
+    {path: 'promociones-admin', component:PromocionesAdminComponent}
 
 ]
 

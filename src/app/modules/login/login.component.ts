@@ -26,23 +26,36 @@ export class LoginComponent{
     transaccion: new FormControl()
   })
 
-  onSubmit(){
-    this.usuarioLogin.value.transaccion ="LOG";
-    this.usuarioLogin.value.username = this.usuarioLogin.value.username ;
+  onSubmit() {
+    this.usuarioLogin.value.transaccion = "LOG";
+    this.usuarioLogin.value.username = this.usuarioLogin.value.username;
     this.usuarioLogin.value.password = this.usuarioLogin.value.password;
 
-    this.loginService.login(this.usuarioLogin.value as Usuario).subscribe((data:any) =>{
-      localStorage.setItem('username', this.usuarioLogin.value.username || "");
-      localStorage.setItem('token', data || "");
-      this.dialogRef.close();
-      this.loginService.username = localStorage.getItem("username") || '';
-      console.log(data);
+    this.loginService.login(this.usuarioLogin.value as Usuario).subscribe(
+      (data: any) => {
+        localStorage.setItem('username', this.usuarioLogin.value.username || "");
+        localStorage.setItem('token', data || "");
+        this.loginService.username = localStorage.getItem("username") || '';
 
-    },(errorData) => {
-      this.alert = true;
-      setTimeout(() => this.alert=false, 4000);
-      console.log("errorData")
-    });
+
+        this.loginService.perfil(this.usuarioLogin.value as Usuario).subscribe(
+          (data: any) => {
+            console.log('Perfil:', data);
+            localStorage.setItem('perfil', JSON.stringify(data) || "");
+            this.usuarioServices._usuarioR = data;
+          },
+          (errorData) => {
+            console.log('Error al obtener el perfil:', errorData);
+          }
+        );
+
+        this.dialogRef.close();
+      },
+      (errorData) => {
+        this.alert = true;
+        setTimeout(() => (this.alert = false), 4000);
+        console.log("errorData");
+      }
+    );
   }
-
 }

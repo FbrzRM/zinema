@@ -25,6 +25,6 @@ export class SnackBarServices{
     }
 
     get snacksBar(): SnackBars[]{
-        return this._snackBar;
+      return this._snackBar;
     }
 }

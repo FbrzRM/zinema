@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit{
         this.router.navigate(['']);
         localStorage.removeItem('username');
         localStorage.removeItem('token');
+        localStorage.removeItem('perfil');
     }
 
     perfil(){

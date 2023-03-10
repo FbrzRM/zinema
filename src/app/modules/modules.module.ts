@@ -24,7 +24,10 @@ import { ExinfoRowComponent } from './info/exinfo-row/exinfo-row.component';
 import { PerfilComponent } from "./perfil/perfil.component";
 import { ReservacionComponent } from "./reservarcion/reservacion.component";
 import { PerfllComponent } from "./perfll/perfll.component";
-
+import { PeliculasAdminComponent } from "./peliculas-admin/peliculas-admin.component";
+import { SnacksAdminComponent } from "./skacks-admin/snacks-admin.component";
+import { PromocionesAdminComponent } from "./promociones-admin/promociones-admin.component";
+import { FormEliminarComponent } from "./form-eliminar/form-eliminar.component";
 
 @NgModule({
     declarations: [
@@ -47,8 +50,11 @@ import { PerfllComponent } from "./perfll/perfll.component";
         PromocionesComponent,
         PerfilComponent,
         ReservacionComponent,
-        PerfllComponent
-        
+        PerfllComponent,
+        PeliculasAdminComponent,
+        SnacksAdminComponent,
+        PromocionesAdminComponent,
+        FormEliminarComponent
     ],
     exports: [
         HomeComponent,

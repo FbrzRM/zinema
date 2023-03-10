@@ -3,7 +3,8 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 import { RegistroRealizadoComponent } from "src/app/shared/components/resgirstro-realizado/registro-realizado.component";
 import { Usuario } from "src/app/shared/interfaces/usuario.interface";
-import { UsuarioService } from "src/app/shared/services/usuario.service";
+import { RegistroService } from "src/app/shared/services/registro.service";
+import { Router} from '@angular/router';
 @Component({
     selector :'app-registrar',
     templateUrl: './registrar.component.html',
@@ -12,47 +13,34 @@ import { UsuarioService } from "src/app/shared/services/usuario.service";
 })
 export class RegistrarComponent implements OnInit{
 
-    constructor(private usuarioService: UsuarioService, private dialog:MatDialog){}
+    constructor(private registroService: RegistroService, private dialog:MatDialog, private router: Router){}
 
     usuarioRegistro = new FormGroup({
+        usuario_id       : new FormControl(0),
+        foto             : new FormControl('NULL'),
+        rol              : new FormControl('usuario'),
         nombres          : new FormControl('',Validators.required),
-        apellidos        : new FormControl('', Validators.required),
-        telf             : new FormControl('',Validators.required),
+        apellido        : new FormControl('', Validators.required),
         cedula           : new FormControl('', Validators.required),
         ciudad           : new FormControl('', Validators.required),
         direccion        : new FormControl('', Validators.required),
-        emailFormControl : new FormControl('', [Validators.required, Validators.email]),
+        email : new FormControl('', [Validators.required, Validators.email]),
         username         : new FormControl('', Validators.required),
         password         : new FormControl('', Validators.required),
-        passwordrepeat   : new FormControl('', Validators.required)
+        transaccion      : new FormControl()
     })
 
-    ngOnInit(){}
+    ngOnInit(){
+    }
 
-    // agregar(){
-    //     let {nombres, apellidos, telf, cedula, ciudad, direccion, emailFormControl, username, password, passwordrepeat} = this.usuarioRegistro.value;
-    //     if(this.usuarioRegistro.valid){
-    //         const n = this.usuarioService.usuariosR.length;
-    //         console.log(n);
-    //         const nuevoUsuario: Usuario = {
-    //             usuario_id: n,
-    //             foto: 'usuario.jpg',
-    //             rol: 'usuario',
-    //             cedula: cedula || '',
-    //             nombres: nombres || '',
-    //             apellido:  apellidos || '',
-    //             ciudad: ciudad || '',
-    //             direccion: direccion || '',
-    //             email: emailFormControl || '',
-    //             username: username || '',
-    //             password: password || '',
-    //             transaccion: 'REGISTRO'
-    //         }
-    //         this.usuarioService.usuariosR.push(nuevoUsuario);
-    //         this.dialog.open(RegistroRealizadoComponent);
-    //         localStorage.setItem('usuariosR',JSON.stringify(this.usuarioService.usuariosR))
 
-    //     }
-    // }
+    registrar() {
+        this.usuarioRegistro.value.transaccion = "INSERTAR"
+        this.registroService.registro(this.usuarioRegistro.value as Usuario).subscribe(() => {
+            this.dialog.open(RegistroRealizadoComponent);
+        }, (errorData) => {
+            console.log(Error);
+        });
+    }
 
 }

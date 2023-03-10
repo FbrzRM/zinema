@@ -39,3 +39,21 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+
+@media (min-width: 768px) {
+  .panel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+
+  .menu {
+    padding: 5rem;
+  }
+}
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
