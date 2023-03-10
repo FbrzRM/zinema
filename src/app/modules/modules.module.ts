@@ -28,6 +28,7 @@ import { PeliculasAdminComponent } from "./peliculas-admin/peliculas-admin.compo
 import { SnacksAdminComponent } from "./skacks-admin/snacks-admin.component";
 import { PromocionesAdminComponent } from "./promociones-admin/promociones-admin.component";
 import { FormEliminarComponent } from "./form-eliminar/form-eliminar.component";
+import { FormPromocionesComponent } from "./form-promociones/form-promociones.component";
 
 @NgModule({
     declarations: [
@@ -54,7 +55,9 @@ import { FormEliminarComponent } from "./form-eliminar/form-eliminar.component";
         PeliculasAdminComponent,
         SnacksAdminComponent,
         PromocionesAdminComponent,
-        FormEliminarComponent
+        FormPromocionesComponent,
+        FormEliminarComponent,
+
     ],
     exports: [
         HomeComponent,

@@ -1,6 +1,5 @@
 import { Component, Inject  } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { Router } from "@angular/router";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -11,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class FormEliminarComponent{
 
 
-    constructor(private router: Router, public dialogRef: MatDialogRef<FormEliminarComponent>, @Inject(MAT_DIALOG_DATA) public data: { id: number, url: string }, private http: HttpClient) {}
+    constructor(public dialogRef: MatDialogRef<FormEliminarComponent>, @Inject(MAT_DIALOG_DATA) public data: { id: number, url: string }, private http: HttpClient) {}
 
     aceptar() {
         const id = this.data.id;
