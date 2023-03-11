@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { SnackBarServices } from "src/app/shared/services/snack-bar.service";
 import { FormEliminarComponent } from "../form-eliminar/form-eliminar.component";
+import { FormSnakcsComponet } from "../form-snacks/form-snacks.component";
 
 @Component({
     selector: 'snacks-admin',
@@ -19,6 +20,12 @@ export class SnacksAdminComponent  {
 
     get snackBar(){
         return this.snackBarServices.snacksBar;
+    }
+
+    editar(snacks_id: number=0, image?:string, nombre?:string, descripcion?:string, precio?:number){
+        this.dialog.open(FormSnakcsComponet,{
+            data: {snacks_id:snacks_id, image:image, nombre:nombre, descripcion:descripcion ,precio:precio,url: '/api/Snacks/SetSnacks'}
+        });
     }
 
     eliminar(id : number){

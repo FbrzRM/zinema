@@ -20,7 +20,7 @@ export class PeliculasServices {
         error => {
           console.log('Error al cargar las películas: ', error);
         }
-      );
+    );
   }
 
   get peliculas(): Pelicula[] {

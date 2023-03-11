@@ -29,6 +29,8 @@ import { SnacksAdminComponent } from "./skacks-admin/snacks-admin.component";
 import { PromocionesAdminComponent } from "./promociones-admin/promociones-admin.component";
 import { FormEliminarComponent } from "./form-eliminar/form-eliminar.component";
 import { FormPromocionesComponent } from "./form-promociones/form-promociones.component";
+import { FormPeliculasComponent } from "./form-peliculas/form-peliculas.component";
+import { FormSnakcsComponet } from "./form-snacks/form-snacks.component";
 
 @NgModule({
     declarations: [
@@ -55,6 +57,8 @@ import { FormPromocionesComponent } from "./form-promociones/form-promociones.co
         PeliculasAdminComponent,
         SnacksAdminComponent,
         PromocionesAdminComponent,
+        FormPeliculasComponent,
+        FormSnakcsComponet,
         FormPromocionesComponent,
         FormEliminarComponent,
 
