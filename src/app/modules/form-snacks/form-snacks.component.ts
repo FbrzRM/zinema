@@ -44,7 +44,7 @@ export class FormSnakcsComponet{
 
         this.http.post('/api/Snacks/SetSnacks', snacks, httpOptions).subscribe(response => {
             this.dialogRef.close();
-            // location.reload();
+            location.reload();
         });
     }
 
